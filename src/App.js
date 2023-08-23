@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ProductDisplay } from './components/ProductDisplay';
+import Addproduct from './components/Addproduct';
+import { useState } from 'react';
+import Editproduct from './components/Editproduct';
 
 function App() {
+  const [productData, setProductData] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<ProductDisplay />} />
+          <Route path="/product/addProduct" element={<Addproduct productData={productData} setProductData={setProductData} />} />
+          <Route path="/product/editProduct/:id" element={<Editproduct />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
+
+
 
 export default App;

@@ -1,1 +1,1 @@
-export const API = "https://64dc8488e64a8525a0f69f28.mockapi.io"
+export const API = "https://demo-fsd.onrender.com"
